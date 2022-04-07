@@ -5,9 +5,22 @@
     $bd = "projeto";
 
     $conexao = mysqli_connect('localhost', 'root', '', 'projeto');
-    if (mysqli_connect($server, $user, $pass, $bd) ) {
-        echo "Funcionou essa porra!!";
+    if ($conn = mysqli_connect($server, $user, $pass, $bd) ) {
     }
     else 
         echo "Erro!";
+
+        function mensagem ($texto, $tipo){
+        echo  "<div class='alert alert-$tipo' role='alert'>
+                $texto
+                </div>";
+
+        }
+
+function mostra_data($data){
+    $d = explode("-", $data);
+    $escreve = $d[2] .'/' .$d[1] .'/' . $d[0] ;
+    return $escreve;
+}
+
 ?>

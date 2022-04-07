@@ -14,18 +14,23 @@
     
     <div class="container">
         <div class="row">
-            <div class="col">
-            <div class="jumbotron">
-                <h1 class="display-4">Cadastro</h1>
-                <p class="lead">Esse é um sistema simples de cadastro. Base de estudos para criação de sistemas com PHP e MySql</p>
-                <hr class="my-4">
-                <p>Acesse as funções</p>
-                <a class="btn btn-primary btn-lg" href="cadastrar.php" role="button">Cadastro de Pessoa</a>
-                <a class="btn btn-primary btn-lg" href="pesquisa.php" role="button">Pesquisar</a>
-                </div>
-            </div>
+           <?php 
+
+            include "conexao.php";
+                $id = $_POST['id'];
+                $nome = $_POST['nome'];
+  
+                $sql = "DELETE from pessoas
+                WHERE cod_pessoa = $id";
+
+               if(mysqli_query($conexao, $sql)){
+                 mensagem ("$nome Excluído com sucesso", 'success');
+               } else mensagem ("$nome Não excluído", 'danger');        
+           ?>
+
+           <a href="index.php" class="btn btn-primary">Voltar</a>
         </div>
-    </div> 
+    </div>  
     <!-- Optional JavaScript; choose one of the two! -->
  
     <!-- Option 1: Bootstrap Bundle with Popper -->

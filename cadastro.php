@@ -14,20 +14,26 @@
     
     <div class="container">
         <div class="row">
-           <?php  
-                $nome = $_POST["nome"];
-                $endereco = $_POST["endereco"];
-                $telefone = $_POST["telefone"];
-                $email = $_POST["email"];
-                $data_nascimento = $_POST["data_nascimento"];
+           <?php 
+
+            include "conexao.php";
+
+                $nome = $_POST['nome'];
+                $endereco = $_POST['endereco'];
+                $telefone = $_POST['telefone'];
+                $email = $_POST['email'];
+                $data_nascimento = $_POST['data_nascimento'];
 
                 $sql = "INSERT INTO pessoas
-                (nome, endeco, telefone, email, data_nascimento) 
-                VALUES 
-                ('$nome','$endereco','$telefone','$email','$data_nascimento')";
+                (nome, endereco, telefone, email, data_nascimento) VALUES ('$nome','$endereco','$telefone',
+                '$email','$data_nascimento')";
 
-                mysqli_query();
+               if(mysqli_query($conexao, $sql)){
+                 mensagem ("$nome Cadastrado com sucesso", 'success');
+               } else mensagem ("$nome Não cadastrado", 'danger');        
            ?>
+
+           <a href="index.php" class="btn btn-primary">Voltar</a>
         </div>
     </div>  
     <!-- Optional JavaScript; choose one of the two! -->
