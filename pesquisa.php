@@ -1,14 +1,10 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-    <title>Pesquisar</title>
   </head>
   <body>
     
@@ -17,7 +13,7 @@
     
     include "conexao.php";
 
-    $sql = "SELECT * FROM pessoas WHERE nome LIKE '%$pesquisa%'";
+    $sql = "SELECT * FROM dados WHERE nome LIKE '%$pesquisa%'";
 
     $dados = mysqli_query($conn, $sql);
 
@@ -32,15 +28,14 @@
                     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Pesquisar</button>
                 </form>
             </nav>
-    <table class="table table-hover">
+            <table class="table table-hover">
         <thead>
             <tr>
             <th scope="col">Nome</th>
             <th scope="col">Endereço</th>
             <th scope="col">Telefone</th>
             <th scope="col">Email</th>
-            <th scope="col">Data de Nascimento</th>
-            <th scope="col">Funções</th>
+            <th scope="col">Senha</th>
             </tr>
         </thead>
         <tbody>
@@ -48,30 +43,27 @@
 
 while ($linha = mysqli_fetch_assoc($dados) ){
     $cod_pessoa = $linha ['cod_pessoa'];
-    $nome = $linha ['nome'];
-    $endereco = $linha ['endereco'];
-    $telefone = $linha ['telefone'];
-    $email = $linha ['email'];
-    $data_nascimento = $linha ['data_nascimento'];
-    $data_nascimento = mostra_data($data_nascimento);
-
+    $nome = $linha ['Nome'];
+    $sobrenome = $linha ['Sobrenome'];
+    $telefone = $linha ['Telefone'];
+    $email = $linha ['Email'];
+    $senha = $linha ['Senha'];
         echo  "<tr>
             <th scope='row'>$nome</th>
-            <td>$endereco</td>
+            <td>$sobrenome</td>
             <td>$telefone</td>
             <td>$email</td>
-            <td>$data_nascimento</td>
-            <td width=150px>
-                <a href='update.php?id=$cod_pessoa' class='btn btn-success btn'>Update</a>
-                <a href='#' class='btn btn-danger btn btn-sm' data-toggle='modal' data-target='#confirma'
-                onclick=".'"'. "pegar_dados($cod_pessoa, '$nome')" . '"'. ">Delete</a>
-            </td>
+            <td>$senha</td>
+            <td width='150px'>
+            <a href='update.php?id=$cod_pessoa' class='btn btn-success btn sm'>Editar</a>
+            <a href='script_excluir.php' class='btn btn-danger btn sm' data-toggle='modal' data-target='#confirma'
+            onclick=".'"'. "pegar_dados($cod_pessoa, '$nome')" . '"' . ">Delete</a>
         </tr>";
         }
       ?>
         </tbody>
         </table>
-                    <a href="index.php" class="btn btn-info">Início</a>
+                    <a href="pesquisa.php" class="btn btn-info">Início</a>
             </div>
         </div>
     </div> 
@@ -118,4 +110,4 @@ while ($linha = mysqli_fetch_assoc($dados) ){
 </body>
 </html> 
 
-
+           

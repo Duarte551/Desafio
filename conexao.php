@@ -2,9 +2,9 @@
     $server = "localhost";
     $user = "root";
     $pass = "";
-    $bd = "projeto";
+    $bd = "registro";
 
-    $conexao = mysqli_connect('localhost', 'root', '', 'projeto');
+    $conexao = mysqli_connect('localhost', 'root', '', 'registro');
     if ($conn = mysqli_connect($server, $user, $pass, $bd) ) {
     }
     else 
@@ -16,11 +16,4 @@
                 </div>";
 
         }
-
-function mostra_data($data){
-    $d = explode("-", $data);
-    $escreve = $d[2] .'/' .$d[1] .'/' . $d[0] ;
-    return $escreve;
-}
-
 ?>

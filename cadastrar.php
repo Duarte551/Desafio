@@ -18,11 +18,11 @@
                 <h1>Cadastro</h1>
                     <form action="cadastro.php" method="post">
                         <div class="form-group">
-                            <label for="nome">Nome Completo</label>
+                            <label for="nome">Nome</label>
                             <input type="text" class="form-control" name="nome" required>
                         </div>
                         <div class="form-group">
-                            <label for="endereco">Endereço</label>
+                            <label for="endereco">Sobrenome</label>
                             <input type="text" class="form-control" name="endereco" required>   
                         </div>
                         <div class="form-group">
@@ -32,10 +32,10 @@
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" name="email" required>                          
-                        </div>
+                        </div> 
                         <div class="form-group">
-                            <label for="data_nascimento">Data de Nascimento</label>
-                            <input type="date" class="form-control" name="data_nascimento" required>
+                            <label for="senha">Senha</label>
+                            <input type="password" class="form-control" name="senha" required>                          
                         </div> 
                         <div class="form-group"> <br>
                             <input type="submit" class="btn btn-success">
@@ -45,16 +45,7 @@
             </div>
         </div>
     </div> 
-    <!-- Optional JavaScript; choose one of the two! -->
- 
-    <!-- Option 1: Bootstrap Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
   </body>
 </html>
 
